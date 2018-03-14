@@ -11,4 +11,16 @@
 |
 */
 
-Route::get('/', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/admin', 'AdminController@index')->name('admin.home');
+
+Route::resources([
+    'thread' => 'ThreadController',
+]);
+
+Route::get('/test', function(){
+    echo phpinfo();
+});
